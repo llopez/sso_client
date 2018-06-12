@@ -6,6 +6,8 @@ module OmniAuth
 
       CUSTOM_PROVIDER_URL = 'http://localhost:3001'
 
+      option :name, 'sso'
+
       option :client_options, {
         :site =>  CUSTOM_PROVIDER_URL,
         :authorize_url => "#{CUSTOM_PROVIDER_URL}/auth/sso/authorize",
@@ -23,6 +25,8 @@ module OmniAuth
       extra do
         {
           :name => raw_info['extra']['name'],
+          :gender => raw_info['extra']['gender'],
+          :age => raw_info['extra']['age']
         }
       end
 

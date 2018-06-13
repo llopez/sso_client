@@ -1,0 +1,4 @@
+development:
+  SSO_APP_ID: APPID001
+  SSO_APP_SECRET: APPSECRET001
+  SSO_PROVIDER_URL: http://localhost:3001

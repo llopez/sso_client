@@ -22,6 +22,6 @@ class UserSessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:notice] = 'You have successfully signed out!'
-    redirect_to "#{CUSTOM_PROVIDER_URL}/users/sign_out"
+    redirect_to "#{ENV['SSO_PROVIDER_URL']}/users/sign_out"
   end
 end

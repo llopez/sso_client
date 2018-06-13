@@ -1,13 +1,12 @@
 class ApplicationController < ActionController::Base
   def login_required
-    if !current_user
-      respond_to do |format|
-        format.html  {
-          redirect_to '/auth/sso'
-        }
-        format.json {
-          render :json => { 'error' => 'Access Denied' }.to_json
-        }
+    return true if current_user
+    respond_to do |format|
+      format.html do
+        redirect_to '/auth/sso'
+      end
+      format.json do
+        render json: { error: 'Access Denied' }
       end
     end
   end
